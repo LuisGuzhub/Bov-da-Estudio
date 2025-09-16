@@ -1,7 +1,6 @@
-// ===== Menú móvil =====
+/* ===== Menú móvil simple ===== */
 const btn = document.querySelector('.hamburger');
 const drawer = document.querySelector('#mobile-drawer');
-
 if (btn && drawer) {
   btn.addEventListener('click', () => {
     const open = btn.getAttribute('aria-expanded') === 'true';
@@ -11,7 +10,17 @@ if (btn && drawer) {
   });
 }
 
-// ===== Revelado al hacer scroll =====
+/* ===== Desbloqueo de autoplay silencioso en iOS/Android ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('video[autoplay][muted]').forEach(v => {
+    const tryPlay = () => v.play().catch(() => { });
+    tryPlay();
+    window.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+    window.addEventListener('pointerdown', tryPlay, { once: true });
+  });
+});
+
+/* ===== Revelado al hacer scroll ===== */
 const toReveal = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window && toReveal.length) {
   const io = new IntersectionObserver((entries, obs) => {
@@ -22,11 +31,10 @@ if ('IntersectionObserver' in window && toReveal.length) {
       }
     });
   }, { threshold: 0.15 });
-
   toReveal.forEach(el => io.observe(el));
 }
 
-// ===== Scheduler (slots de 1 hora) =====
+/* ===== Scheduler (slots de 1 hora) ===== */
 const openers = document.querySelectorAll('[data-open="scheduler"], a[href="#agendar"]');
 const panel = document.querySelector('.scheduler-panel');
 const backdrop = document.querySelector('.scheduler-backdrop');
@@ -38,6 +46,7 @@ const cancelBtn = document.querySelector('#cancel-scheduler');
 const dateEl = document.querySelector('#meet-date');
 let selectedBtn = null;
 
+// inicia oculto
 window.addEventListener('load', () => {
   if (panel) { panel.setAttribute('hidden', ''); panel.setAttribute('aria-hidden', 'true'); }
   if (backdrop) backdrop.setAttribute('hidden', '');
@@ -52,8 +61,9 @@ function fmt(mins) {
 function labelRange(start, step = 60) { return `${fmt(start)} – ${fmt(start + step)}`; }
 
 function buildSlots() {
+  if (!slotsEl) return;
   slotsEl.innerHTML = '';
-  const step = 60;                             // 1 hora
+  const step = 60; // 1 hora
   const start = minutes(8, 0), end = minutes(17, 0); // 08:00 - 17:00
   for (let t = start; t < end; t += step) {
     const b = document.createElement('button');
@@ -72,25 +82,28 @@ function buildSlots() {
 }
 
 function openScheduler(e) {
+  if (!panel || !backdrop) return;
   if (e) e.preventDefault();
   if (panel.hasAttribute('hidden')) {
-    frame.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    frame?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     panel.removeAttribute('hidden');
     panel.setAttribute('aria-hidden', 'false');
-    backdrop?.removeAttribute('hidden');
+    backdrop.removeAttribute('hidden');
     buildSlots();
     const today = new Date().toISOString().slice(0, 10);
-    dateEl.value = today;
-    dateEl.min = today; // no fechas pasadas
+    if (dateEl) {
+      dateEl.value = today;
+      dateEl.min = today;
+    }
     document.body.classList.add('modal-open');
   }
 }
-
 function closeScheduler() {
+  if (!panel || !backdrop) return;
   if (!panel.hasAttribute('hidden')) {
     panel.setAttribute('hidden', '');
     panel.setAttribute('aria-hidden', 'true');
-    backdrop?.setAttribute('hidden', '');
+    backdrop.setAttribute('hidden', '');
     selectedBtn = null;
     document.body.classList.remove('modal-open');
   }

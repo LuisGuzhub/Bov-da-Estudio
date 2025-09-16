@@ -1,21 +1,31 @@
-/* =========================
-   BÓVEDA ESTUDIO — style.css
-   ========================= */
-
 /* ===== Reset mínimo ===== */
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 [hidden] {
-    display: none !important
+    display: none !important;
 }
 
 html,
 body {
-    height: 100%
+    height: 100%;
+}
+
+/* Anti scroll lateral y buen reflow en móvil */
+html,
+body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 body {
@@ -28,7 +38,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px
+    padding: 24px;
 }
 
 /* ===== Header sticky ===== */
@@ -37,7 +47,7 @@ body {
     top: 0;
     z-index: 1000;
     background: #fff;
-    border-bottom: 1px solid #eaeaea
+    border-bottom: 1px solid #eaeaea;
 }
 
 .header-inner {
@@ -53,39 +63,39 @@ body {
 .brand img {
     height: 50px;
     width: auto;
-    display: block
+    display: block;
 }
 
 .brand {
     text-decoration: none;
     color: inherit;
     font-weight: 600;
-    font-size: 18px
+    font-size: 18px;
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 28px
+    gap: 28px;
 }
 
 .main-nav a {
     text-decoration: none;
     color: #333;
     font-size: 15px;
-    letter-spacing: .2px
+    letter-spacing: .2px;
 }
 
 .main-nav a:hover,
 .main-nav a.is-active {
-    color: #000
+    color: #000;
 }
 
 .header-cta {
     display: flex;
     gap: 12px;
     justify-self: end;
-    align-items: center
+    align-items: center;
 }
 
 .btn {
@@ -93,27 +103,27 @@ body {
     font-size: 14px;
     border-radius: 4px;
     text-decoration: none;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 .btn-outline {
     border: 1px solid #111;
     color: #111;
-    background: transparent
+    background: transparent;
 }
 
 .btn-outline:hover {
     background: #111;
-    color: #fff
+    color: #fff;
 }
 
 .hamburger {
     display: none;
-    border: none;
+    border: 0;
     background: none;
     padding: 8px;
     margin-left: 4px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .hamburger span {
@@ -121,52 +131,52 @@ body {
     width: 22px;
     height: 2px;
     background: #111;
-    margin: 5px 0
+    margin: 5px 0;
 }
 
 .mobile-drawer {
     border-bottom: 1px solid #eaeaea;
-    background: #fff
+    background: #fff;
 }
 
 .mobile-drawer nav {
     display: grid;
     gap: 12px;
-    padding: 12px 24px 18px
+    padding: 12px 24px 18px;
 }
 
 .mobile-drawer a {
     text-decoration: none;
     color: #333;
-    font-size: 16px
+    font-size: 16px;
 }
 
 .mobile-drawer a:hover {
-    color: #000
+    color: #000;
 }
 
 @media (max-width:980px) {
     .header-inner {
-        grid-template-columns: auto 1fr auto
+        grid-template-columns: auto 1fr auto;
     }
 
     .main-nav {
-        display: none
+        display: none;
     }
 
     .btn-outline {
-        display: none
+        display: none;
     }
 
     .hamburger {
-        display: inline-block
+        display: inline-block;
     }
 }
 
 /* ===== Hero (video) ===== */
 #video-hero {
     margin-top: 15px;
-    position: relative
+    position: relative;
 }
 
 .hero-video {
@@ -201,6 +211,20 @@ body {
     z-index: 5;
 }
 
+/* Viewport moderno en móviles: ocupa pantalla completa sin fallar con barras */
+@supports (height: 100dvh) {
+    .scheduler-backdrop {
+        inset: 0;
+        height: 100dvh;
+        border-radius: 0;
+    }
+
+    .scheduler-panel {
+        inset: 10dvh 6vw;
+        max-height: 80dvh;
+    }
+}
+
 .scheduler-close {
     position: absolute;
     top: 8px;
@@ -215,38 +239,38 @@ body {
 
 .scheduler-head h3 {
     font-size: 18px;
-    margin-bottom: 2px
+    margin-bottom: 2px;
 }
 
 .scheduler-head p {
     color: #666;
-    font-size: 13px
+    font-size: 13px;
 }
 
 .scheduler-form {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px
+    gap: 12px;
 }
 
 .scheduler-form label {
     display: grid;
     gap: 6px;
     font-size: 14px;
-    color: #333
+    color: #333;
 }
 
 .scheduler-form input[type="date"] {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 8px 10px;
-    font-size: 14px
+    font-size: 14px;
 }
 
 .slots {
     display: grid;
     gap: 8px;
-    grid-template-columns: repeat(4, 1fr)
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .slot-btn {
@@ -260,57 +284,57 @@ body {
 }
 
 .slot-btn:hover {
-    border-color: #111
+    border-color: #111;
 }
 
 .slot-btn.is-selected {
     background: #111;
     color: #fff;
-    border-color: #111
+    border-color: #111;
 }
 
 .slot-btn:disabled {
     opacity: .45;
-    cursor: not-allowed
+    cursor: not-allowed;
 }
 
 .scheduler-actions {
     display: flex;
     gap: 10px;
-    margin-top: 4px
+    margin-top: 4px;
 }
 
 .scheduler-actions .btn {
-    border: 1px solid #111
+    border: 1px solid #111;
 }
 
 @media (max-width:980px) {
     .scheduler-panel {
-        inset: 8% 10%
+        inset: 8% 10%;
     }
 
     .slots {
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width:560px) {
     .scheduler-panel {
-        inset: 6% 6%
+        inset: 6% 6%;
     }
 
     .slots {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 body.modal-open {
-    overflow: hidden
+    overflow: hidden;
 }
 
 /* ===== Galería ===== */
 .gallery {
-    margin-bottom: 16px
+    margin-bottom: 16px;
 }
 
 /* Encabezado tipo Reform */
@@ -339,33 +363,19 @@ body.modal-open {
 }
 
 .section-link:hover {
-    opacity: .7
+    opacity: .7;
 }
 
-/* Grilla de tarjetas (robusta) */
+/* Grilla centrada */
 .gallery-grid {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
     max-width: 980px;
     margin: 8px auto 0;
 }
 
-@media (max-width:980px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 720px
-    }
-}
-
-@media (max-width:560px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        max-width: 420px
-    }
-}
-
-/* ===== Tarjeta ===== */
+/* Tarjeta */
 .vcard {
     position: relative;
     border-radius: 12px;
@@ -374,30 +384,19 @@ body.modal-open {
     box-shadow: 0 0 0 1px #eee inset;
 }
 
-/* --- CONTENEDOR DE IMAGEN ROBUSTO --- */
 .vcard-media {
     position: relative;
     width: 100%;
-    /* 1) Altura estable en navegadores modernos */
-    aspect-ratio: 3 / 4;
-
-    /* 2) Asegúrate de que, aun con barras de UI, no baje de cierto alto en móvil */
-    min-height: clamp(220px, 60vw, 420px);
-    background: #f7f7f7;
-    overflow: hidden;
 }
 
-/* 3) Fallback: si el navegador NO soporta aspect-ratio, usa el truco del ::before */
-@supports not (aspect-ratio: 1 / 1) {
-    .vcard-media::before {
-        content: "";
-        display: block;
-        padding-top: 133.333%;
-        /* 4/3 * 100 */
-    }
+.vcard-media::before {
+    content: "";
+    display: block;
+    padding-top: 133.333%;
 }
 
-/* Las dos imágenes (base + hover) ocupan todo el contenedor */
+/* 4/3 */
+
 .vcard-media .img {
     position: absolute;
     inset: 0;
@@ -405,116 +404,155 @@ body.modal-open {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: opacity .45s ease, transform .6s ease;
+    will-change: opacity, transform;
+}
+
+.vcard-media .img.base {
     opacity: 1;
-    transform: none;
 }
 
 .vcard-media .img.hover {
-    opacity: 0
+    opacity: 0;
 }
 
-/* alterna oculta por defecto */
+/* Hover suave SOLO donde existe hover */
+@media (hover:hover) and (pointer:fine) {
+    .vcard:hover .vcard-media .img.hover {
+        opacity: 1;
+        transform: scale(1.01);
+    }
+
+    .vcard:hover .vcard-media .img.base {
+        opacity: .02;
+    }
+}
+
+/* En táctiles no mostramos la segunda capa */
+@media (hover:none) {
+    .vcard-media .img.hover {
+        display: none;
+    }
+}
 
 /* Caption */
 .vcard figcaption {
     padding: 10px 2px 2px;
     font-size: 16px;
     line-height: 1.35;
-    color: #111
+    color: #111;
 }
 
 .cap-title {
     font-weight: 600;
-    letter-spacing: .1px
+    letter-spacing: .1px;
 }
 
 .cap-muted {
     color: #666;
-    font-weight: 400
+    font-weight: 400;
 }
 
-/* Toda la tarjeta clicable */
+/* Clic en toda la tarjeta */
 .card-hit {
     position: absolute;
     inset: 0;
     z-index: 6;
-    text-indent: -9999px
+    text-indent: -9999px;
 }
 
 .card-hit:focus-visible {
     outline: 2px solid #111;
-    outline-offset: 4px
+    outline-offset: 4px;
 }
 
-/* Hover SOLO en dispositivos con hover real (desktop) */
-@media (hover:hover) and (pointer:fine) {
-    .vcard-media .img {
-        transition: opacity .45s ease, transform .6s ease;
-        will-change: opacity, transform
-    }
-
-    .vcard:hover .vcard-media .img.hover {
-        opacity: 1;
-        transform: scale(1.01)
-    }
-
-    .vcard:hover .vcard-media .img.base {
-        opacity: 0
-    }
-}
-
-/* Animación reveal (desactivada en móvil para evitar “no carga”) */
+/* Animación de entrada */
 .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity .7s ease, transform .7s ease;
-    transition-delay: var(--d, 0ms)
+    transition-delay: var(--d, 0ms);
 }
 
 .reveal.revealed {
     opacity: 1;
-    transform: translateY(0)
+    transform: translateY(0);
 }
 
-@media (max-width:640px) {
-    .reveal {
-        opacity: 1;
-        transform: none
+/* Breakpoints grilla */
+@media (max-width:980px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        max-width: 720px;
     }
 }
 
-/* Accesibilidad: menos movimiento */
-@media (prefers-reduced-motion:reduce) {
-    .vcard-media .img {
-        transition: opacity .25s linear !important
+@media (max-width:560px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
     }
 }
 
-/* ==== HARD FIX para móvil: altura garantizada de las tarjetas ==== */
-
-/* Tablet/móvil ancho */
-@media (max-width: 980px) {
+/* ==== HARD FIX móvil: altura garantizada de tarjetas ==== */
+@media (max-width:980px) {
     .vcard {
         display: flex;
         flex-direction: column;
     }
 
-    /* Altura robusta del contenedor de imagen */
     .vcard-media {
         height: 56vw;
-        /* proporcional al ancho de la pantalla */
         min-height: 240px;
-        /* no bajes de aquí */
         max-height: 420px;
-        /* pero tampoco te pases */
     }
 }
 
-/* Móvil chico */
-@media (max-width: 560px) {
+@media (max-width:560px) {
     .vcard-media {
         height: 72vw;
-        /* un poco más alta en móviles angostos */
         min-height: 220px;
     }
+}
+
+/* Seguridad extra para teléfonos muy estrechos */
+@media (max-width:380px) {
+    .vcard-media {
+        height: 78vw;
+        min-height: 200px;
+    }
+}
+
+/* ===== Página de detalle ===== */
+.detail-container {
+    max-width: 1280px;
+    margin: 24px auto;
+    padding: 0 24px;
+}
+
+.detail-hero {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    background: #000;
+}
+
+.detail-hero video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.detail-head {
+    margin: 18px 0 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.detail-title {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -.01em;
 }
