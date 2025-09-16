@@ -1,3 +1,7 @@
+/* =========================
+   BÓVEDA ESTUDIO — style.css
+   ========================= */
+
 /* ===== Reset mínimo ===== */
 * {
     box-sizing: border-box;
@@ -120,6 +124,7 @@ body {
     margin: 5px 0;
 }
 
+/* Drawer móvil */
 .mobile-drawer {
     border-bottom: 1px solid #eaeaea;
     background: #fff;
@@ -150,10 +155,12 @@ body {
         display: none;
     }
 
+    /* oculta menú de escritorio */
     .btn-outline {
         display: none;
     }
 
+    /* oculta CTAs de la derecha en móvil */
     .hamburger {
         display: inline-block;
     }
@@ -239,6 +246,7 @@ body {
     font-size: 14px;
 }
 
+/* Slots (1 hora) */
 .slots {
     display: grid;
     gap: 8px;
@@ -304,7 +312,7 @@ body.modal-open {
     overflow: hidden;
 }
 
-/* ===== Galería ===== */
+/* ===== Galería / sección ===== */
 .gallery {
     margin-bottom: 16px;
 }
@@ -338,16 +346,30 @@ body.modal-open {
     opacity: .7;
 }
 
-/* Grilla centrada */
+/* Grilla de tarjetas centrada (robusta) */
 .gallery-grid {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: 980px;
     margin: 8px auto 0;
 }
 
-/* ====== Tarjeta con FIX para móvil ====== */
+@media (max-width: 980px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 560px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+}
+
+/* ===== Tarjeta estilo Reform: imagen + caption ===== */
 .vcard {
     position: relative;
     border-radius: 12px;
@@ -356,23 +378,16 @@ body.modal-open {
     box-shadow: 0 0 0 1px #eee inset;
 }
 
-/* Contenedor imagen con altura garantizada (fallback + aspect-ratio) */
+/* Contenedor de imagen con altura estable (3:4) */
 .vcard-media {
     position: relative;
     width: 100%;
-    /* Fallback universal con ratio 3:4 */
-    padding-top: 133.333%;
+    aspect-ratio: 3 / 4;
+    /* mantiene proporción en todas las pantallas */
     overflow: hidden;
 }
 
-/* Si hay soporte, usa aspect-ratio y quita el padding */
-@supports (aspect-ratio: 3 / 4) {
-    .vcard-media {
-        padding-top: 0;
-        aspect-ratio: 3 / 4;
-    }
-}
-
+/* Las dos imágenes (base + hover) ocupan todo el contenedor */
 .vcard-media .img {
     position: absolute;
     inset: 0;
@@ -380,42 +395,15 @@ body.modal-open {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: opacity .45s ease, transform .6s ease;
-    will-change: opacity, transform;
-}
-
-.vcard-media .img.base {
     opacity: 1;
+    transform: none;
 }
 
 .vcard-media .img.hover {
     opacity: 0;
 }
 
-.vcard:hover .vcard-media .img.hover {
-    opacity: 1;
-    transform: scale(1.01);
-}
-
-.vcard:hover .vcard-media .img.base {
-    opacity: .02;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .vcard-media .img {
-        transition: opacity .25s linear;
-    }
-
-    .vcard:hover .vcard-media .img.hover {
-        transform: none;
-    }
-}
-
-@media (hover: none) {
-    .vcard-media .img.hover {
-        display: none;
-    }
-}
+/* oculta alterna por defecto */
 
 /* Caption */
 .vcard figcaption {
@@ -435,7 +423,7 @@ body.modal-open {
     font-weight: 400;
 }
 
-/* Toda la tarjeta clickable */
+/* Toda la tarjeta clicable */
 .card-hit {
     position: absolute;
     inset: 0;
@@ -448,7 +436,24 @@ body.modal-open {
     outline-offset: 4px;
 }
 
-/* Animación de entrada */
+/* Hover SÓLO en dispositivos con hover real (desktop) */
+@media (hover:hover) and (pointer:fine) {
+    .vcard-media .img {
+        transition: opacity .45s ease, transform .6s ease;
+        will-change: opacity, transform;
+    }
+
+    .vcard:hover .vcard-media .img.hover {
+        opacity: 1;
+        transform: scale(1.01);
+    }
+
+    .vcard:hover .vcard-media .img.base {
+        opacity: 0;
+    }
+}
+
+/* Animación de entrada de las tarjetas (IntersectionObserver) */
 .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -461,17 +466,9 @@ body.modal-open {
     transform: translateY(0);
 }
 
-/* Breakpoints de la grilla */
-@media (max-width: 980px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
-        max-width: 720px;
-    }
-}
-
-@media (max-width: 560px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        max-width: 420px;
+/* Accesibilidad: menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+    .vcard-media .img {
+        transition: opacity .25s linear !important;
     }
 }
