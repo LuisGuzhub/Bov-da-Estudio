@@ -10,16 +10,12 @@
 </head>
 
 <body>
-    <!-- HEADER -->
     <header class="site-header">
         <div class="header-inner">
-            <!-- Logo -->
             <a class="brand" href="index.html" aria-label="Bovéda Estudio">
                 <img src="img/boveda png.png" alt="Bovéda Estudio"
                     onerror="this.replaceWith(document.createTextNode('Bóveda'));">
             </a>
-
-            <!-- Menú -->
             <nav class="main-nav" aria-label="Principal">
                 <ul>
                     <li><a class="is-active" href="index.html">Inicio</a></li>
@@ -28,8 +24,6 @@
                     <li><a href="contact.html">Contacto</a></li>
                 </ul>
             </nav>
-
-            <!-- Acciones -->
             <div class="header-cta">
                 <a class="btn btn-outline" href="#cotizar">Cotizar</a>
                 <a class="btn btn-outline" href="#agendar" data-open="scheduler">Agendar reunión</a>
@@ -38,8 +32,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- Drawer móvil -->
         <div id="mobile-drawer" class="mobile-drawer" hidden>
             <nav aria-label="Menú móvil">
                 <a href="index.html">Inicio</a>
@@ -52,36 +44,28 @@
         </div>
     </header>
 
-    <!-- CONTENIDO -->
     <main class="container">
         <h1>Bienvenido a Bovéda Estudio</h1>
         <p>Arquitectura, diseño y detalle — con precisión de taller.</p>
 
-        <!-- Hero: video -->
+        <!-- Hero -->
         <section id="video-hero">
             <video class="hero-video" muted playsinline autoplay loop preload="metadata"
                 src="media/videoprueba.mp4"></video>
 
-            <!-- Backdrop & Panel (inicialmente ocultos) -->
+            <!-- Modal agenda compartido -->
             <div class="scheduler-backdrop" hidden></div>
-
             <div class="scheduler-panel" hidden aria-hidden="true" role="dialog" aria-modal="true">
                 <button class="scheduler-close" type="button" aria-label="Cerrar">×</button>
                 <header class="scheduler-head">
                     <h3>Agendar reunión</h3>
                     <p>Horario laboral: 08:00–17:00</p>
                 </header>
-
                 <form id="schedule-form" class="scheduler-form">
-                    <label>
-                        Fecha
-                        <input type="date" id="meet-date" required>
-                    </label>
-
+                    <label>Fecha <input type="date" id="meet-date" required></label>
                     <div class="slots-wrap">
-                        <div class="slots" id="slots"><!-- horarios por JS --></div>
+                        <div class="slots" id="slots"></div>
                     </div>
-
                     <div class="scheduler-actions">
                         <button type="submit" class="btn btn-outline">Confirmar</button>
                         <button type="button" class="btn" id="cancel-scheduler">Cancelar</button>
@@ -105,11 +89,9 @@
                     <img src="img/di1.jpg" alt="Interior con piscina y palmeras" class="img base">
                     <img src="img/di4.jpg" alt="Interior alternativo · detalle" class="img hover">
                 </div>
-                <figcaption>
-                    <span class="cap-title">Interior</span>
-                    <span class="cap-muted"> · Luz y agua</span>
+                <figcaption><span class="cap-title">Interior</span><span class="cap-muted"> · Luz y agua</span>
                 </figcaption>
-                <a class="card-hit" href="collection.html" aria-label="Abrir colección Interior · Luz y agua"></a>
+                <a class="card-hit" href="collection1.html" aria-label="Abrir colección Interior · Luz y agua"></a>
             </figure>
 
             <!-- Card 2 -->
@@ -118,11 +100,8 @@
                     <img src="img/di2.jpg" alt="Fachada con celosía y volúmenes puros" class="img base">
                     <img src="img/di5.jpg" alt="Fachada alterna · otra vista" class="img hover">
                 </div>
-                <figcaption>
-                    <span class="cap-title">Fachada</span>
-                    <span class="cap-muted"> · Celosía</span>
-                </figcaption>
-                <a class="card-hit" href="collection.html" aria-label="Abrir colección Fachada · Celosía"></a>
+                <figcaption><span class="cap-title">Fachada</span><span class="cap-muted"> · Celosía</span></figcaption>
+                <a class="card-hit" href="collection2.html" aria-label="Abrir colección Fachada · Celosía"></a>
             </figure>
 
             <!-- Card 3 -->
@@ -131,11 +110,8 @@
                     <img src="img/di3.jpg" alt="Detalle interior con listones de madera" class="img base">
                     <img src="img/di6.jpg" alt="Detalle alterno · materiales" class="img hover">
                 </div>
-                <figcaption>
-                    <span class="cap-title">Detalle</span>
-                    <span class="cap-muted"> · Madera</span>
-                </figcaption>
-                <a class="card-hit" href="collection.html" aria-label="Abrir colección Detalle · Madera"></a>
+                <figcaption><span class="cap-title">Detalle</span><span class="cap-muted"> · Madera</span></figcaption>
+                <a class="card-hit" href="collection3.html" aria-label="Abrir colección Detalle · Madera"></a>
             </figure>
         </div>
     </section>
