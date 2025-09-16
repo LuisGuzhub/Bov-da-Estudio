@@ -356,19 +356,22 @@ body.modal-open {
     box-shadow: 0 0 0 1px #eee inset;
 }
 
-/* Contenedor imagen con altura fija por relación (3:4) usando pseudo-elemento */
+/* Contenedor imagen con altura garantizada (fallback + aspect-ratio) */
 .vcard-media {
     position: relative;
     width: 100%;
-}
-
-.vcard-media::before {
-    content: "";
-    display: block;
+    /* Fallback universal con ratio 3:4 */
     padding-top: 133.333%;
+    overflow: hidden;
 }
 
-/* 4/3*100 */
+/* Si hay soporte, usa aspect-ratio y quita el padding */
+@supports (aspect-ratio: 3 / 4) {
+    .vcard-media {
+        padding-top: 0;
+        aspect-ratio: 3 / 4;
+    }
+}
 
 .vcard-media .img {
     position: absolute;
