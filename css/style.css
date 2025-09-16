@@ -489,3 +489,32 @@ body.modal-open {
         transition: opacity .25s linear !important
     }
 }
+
+/* ==== HARD FIX para móvil: altura garantizada de las tarjetas ==== */
+
+/* Tablet/móvil ancho */
+@media (max-width: 980px) {
+    .vcard {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Altura robusta del contenedor de imagen */
+    .vcard-media {
+        height: 56vw;
+        /* proporcional al ancho de la pantalla */
+        min-height: 240px;
+        /* no bajes de aquí */
+        max-height: 420px;
+        /* pero tampoco te pases */
+    }
+}
+
+/* Móvil chico */
+@media (max-width: 560px) {
+    .vcard-media {
+        height: 72vw;
+        /* un poco más alta en móviles angostos */
+        min-height: 220px;
+    }
+}
