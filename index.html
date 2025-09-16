@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bovéda Estudio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="img/boveda png.ico">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <!-- Logo -->
+            <a class="brand" href="index.html" aria-label="Bovéda Estudio">
+                <img src="img/boveda png.png" alt="Bóveda Estudio"
+                    onerror="this.replaceWith(document.createTextNode('Bóveda'));">
+            </a>
+
+            <!-- Menú -->
+            <nav class="main-nav" aria-label="Principal">
+                <ul>
+                    <li><a class="is-active" href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="projects.html">Proyectos</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- CTAs -->
+            <div class="header-cta">
+                <a class="btn btn-outline" href="#cotizar">Cotizar</a>
+                <a class="btn btn-outline" href="#agendar" data-open="scheduler">Agendar reunión</a>
+                <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-drawer">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Drawer móvil -->
+        <div id="mobile-drawer" class="mobile-drawer" hidden>
+            <nav aria-label="Menú móvil">
+                <a href="index.html">Inicio</a>
+                <a href="about.html">Nosotros</a>
+                <a href="projects.html">Proyectos</a>
+                <a href="contact.html">Contacto</a>
+                <a href="#cotizar">Cotizar</a>
+                <a href="#agendar" data-open="scheduler">Agendar reunión</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="container">
+        <h1>Bienvenido a Bovéda Estudio</h1>
+        <p>Arquitectura, diseño y detalle — con precisión de taller.</p>
+
+        <!-- HERO: video a todo el ancho -->
+        <section id="video-hero">
+            <video class="hero-video" autoplay muted loop playsinline aria-label="Presentación Bóveda Estudio">
+                <source src="media/videoprueba.mp4" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+            </video>
+
+            <!-- Backdrop/modal de agenda -->
+            <div class="scheduler-backdrop" hidden></div>
+
+            <div class="scheduler-panel" hidden aria-hidden="true" role="dialog" aria-modal="true">
+                <button class="scheduler-close" type="button" aria-label="Cerrar">×</button>
+                <header class="scheduler-head">
+                    <h3>Agendar reunión</h3>
+                    <p>Horario laboral: 08:00–17:00</p>
+                </header>
+
+                <form id="schedule-form" class="scheduler-form">
+                    <label>
+                        Fecha
+                        <input type="date" id="meet-date" required>
+                    </label>
+
+                    <div class="slots" id="slots"><!-- generado por JS --></div>
+
+                    <div class="scheduler-actions">
+                        <button type="submit" class="btn btn-outline">Confirmar</button>
+                        <button type="button" class="btn" id="cancel-scheduler">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- GALERÍA -->
+    <section class="gallery" id="destacados">
+        <div class="section-head">
+            <h2 class="section-title">Proyectos destacados</h2>
+            <a class="section-link" href="projects.html">Ver todo</a>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Card 1 -->
+            <figure class="vcard reveal" style="--d:0ms">
+                <div class="vcard-media">
+                    <img src="img/di1.jpg" alt="Interior con piscina y palmeras" class="img base">
+                    <img src="img/di4.jpg" alt="Interior alternativo · detalle" class="img hover">
+                </div>
+                <figcaption>
+                    <span class="cap-title">Interior</span>
+                    <span class="cap-muted"> · Luz y agua</span>
+                </figcaption>
+                <a class="card-hit" href="collection.html" aria-label="Abrir colección Interior · Luz y agua"></a>
+            </figure>
+
+            <!-- Card 2 -->
+            <figure class="vcard reveal" style="--d:120ms">
+                <div class="vcard-media">
+                    <img src="img/di2.jpg" alt="Fachada con celosía y volúmenes puros" class="img base">
+                    <img src="img/di5.jpg" alt="Fachada alterna · otra vista" class="img hover">
+                </div>
+                <figcaption>
+                    <span class="cap-title">Fachada</span>
+                    <span class="cap-muted"> · Celosía</span>
+                </figcaption>
+                <a class="card-hit" href="collection.html" aria-label="Abrir colección Fachada · Celosía"></a>
+            </figure>
+
+            <!-- Card 3 -->
+            <figure class="vcard reveal" style="--d:240ms">
+                <div class="vcard-media">
+                    <img src="img/di3.jpg" alt="Detalle interior con listones de madera" class="img base">
+                    <img src="img/di6.jpg" alt="Detalle alterno · materiales" class="img hover">
+                </div>
+                <figcaption>
+                    <span class="cap-title">Detalle</span>
+                    <span class="cap-muted"> · Madera</span>
+                </figcaption>
+                <a class="card-hit" href="collection.html" aria-label="Abrir colección Detalle · Madera"></a>
+            </figure>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
