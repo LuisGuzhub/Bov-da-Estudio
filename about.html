@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bovéda Estudio — Nosotros</title>
+    <link rel="icon" href="img/boveda png.ico">
+    <link rel="stylesheet" href="css/style.css?v=11" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="Bóveda Estudio">
+                <img src="img/boveda png.png" alt="Bóveda Estudio"
+                    onerror="this.replaceWith(document.createTextNode('Bóveda'));">
+            </a>
+            <nav class="main-nav" aria-label="Principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a class="is-active" href="about.html">Nosotros</a></li>
+                    <li><a href="projects.html">Proyectos</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a class="btn btn-outline" href="#agendar" data-open="scheduler">Agendar reunión</a>
+                <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-drawer">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-drawer" class="mobile-drawer" hidden>
+            <nav aria-label="Menú móvil">
+                <a href="index.html">Inicio</a>
+                <a class="is-active" href="about.html">Nosotros</a>
+                <a href="projects.html">Proyectos</a>
+                <a href="contact.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="about-wrap">
+        <!-- Bloque 1: texto izq + imagen der (centrados verticalmente) -->
+        <section class="about-split reveal">
+            <div class="split-text">
+                <h1>Gran diseño, uso cotidiano</h1>
+                <p>
+                    En Bóveda colaboramos con arquitectos, diseñadores y fabricantes para
+                    transformar necesidades reales en soluciones sobrias. Buscamos piezas
+                    que funcionen todos los días y que, con el tiempo, se sientan aún mejor.
+                </p>
+                <p>
+                    Preferimos materiales honestos y decisiones claras: luz, ventilación,
+                    orden y detalle. Nada sobra; todo sirve.
+                </p>
+            </div>
+            <figure class="split-img">
+                <img src="img/A1.jpg" alt="Superficie de trabajo con luz natural" loading="lazy" decoding="async">
+            </figure>
+        </section>
+
+        <!-- Bloque 2: imagen izq + texto der (inverso para ritmo) -->
+        <section class="about-split is-reverse reveal" style="--d:140ms">
+            <figure class="split-img">
+                <img src="img/A2.jpg" alt="Fachada con ritmo de celosías" loading="lazy" decoding="async">
+            </figure>
+            <div class="split-text">
+                <h2>Versatilidad que dura</h2>
+                <p>
+                    Diseñamos con la vida en mente: cambios de uso, mantenimiento sencillo
+                    y soluciones que resisten modas. La forma aparece cuando la función está resuelta.
+                </p>
+                <p class="muted">Arquitectura, dirección de detalle, visualización y fabricación.</p>
+            </div>
+        </section>
+
+        <!-- Bloque 3: texto izq + imagen der con copy extra -->
+        <section class="about-split reveal" style="--d:220ms">
+            <div class="split-text">
+                <h2>Un método simple</h2>
+                <ul>
+                    <li>Escuchar y definir el problema.</li>
+                    <li>Prototipar y decidir a tiempo.</li>
+                    <li>Construir con precisión.</li>
+                </ul>
+                <p>
+                    Soy el Arquitecto <strong>Joao Méndez</strong>. Me obsesiona que cada decisión
+                    tenga una razón: la luz que entra a las 5 pm, la mano que abre una puerta,
+                    el encuentro limpio entre materiales. Un proyecto está terminado cuando
+                    respira fácil y mejora la vida de quien lo habita.
+                </p>
+                <p class="muted">Nuestro objetivo: espacios que respiran fácil.</p>
+                <a class="btn btn-outline" href="#agendar" data-open="scheduler">Agendar reunión</a>
+            </div>
+            <figure class="split-img">
+                <img src="img/A3.jpg" alt="Detalle en madera con luz rasante" loading="lazy" decoding="async">
+            </figure>
+        </section>
+
+        <!-- Visión (nuevo bloque) -->
+        <section class="about-vision reveal" style="--d:420ms">
+            <h2 class="about-vision-title">Visión</h2>
+            <div class="about-vision-body">
+                <p>
+                    En <strong>Bóveda Estudio</strong> trabajamos con la convicción de que el diseño debe ser
+                    honesto, sobrio y cercano a la gente. Nuestra visión es crear espacios que inspiren
+                    confianza, transmitan calidez y eleven la vida cotidiana de quienes los habitan.
+                </p>
+                <p>
+                    Nos mueve el orgullo de nuestras raíces y la certeza de que, con dedicación y respeto,
+                    cada detalle puede transformar un lugar común en un sitio especial. Apostamos por materiales
+                    nobles, decisiones claras y un estilo que combine modernidad con la esencia de nuestra tierra.
+                </p>
+                <p>
+                    Queremos ser un referente en el país: un estudio que construye con responsabilidad,
+                    acompaña con cercanía y entrega resultados que hablan por sí solos.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal agenda (reutilizado) -->
+    <div class="scheduler-backdrop" hidden></div>
+    <div class="scheduler-panel" hidden aria-hidden="true" role="dialog" aria-modal="true">
+        <button class="scheduler-close" type="button" aria-label="Cerrar">×</button>
+        <header class="scheduler-head">
+            <h3>Agendar reunión</h3>
+            <p>Horario laboral: 08:00–17:00</p>
+        </header>
+        <form id="schedule-form" class="scheduler-form">
+            <label>Fecha <input type="date" id="meet-date" required></label>
+            <div class="slots-wrap">
+                <div class="slots" id="slots"></div>
+            </div>
+            <div class="scheduler-actions">
+                <button type="submit" class="btn btn-outline">Confirmar</button>
+                <button type="button" class="btn" id="cancel-scheduler">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/main.js?v=11"></script>
+</body>
+
+</html>

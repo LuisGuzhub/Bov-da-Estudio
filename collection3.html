@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- HEADER -->
     <header class="site-header">
         <div class="header-inner">
             <a class="brand" href="index.html" aria-label="Bovéda Estudio">
@@ -41,12 +42,14 @@
         </div>
     </header>
 
+    <!-- CONTENIDO -->
     <main class="detail-container">
         <div class="detail-head">
             <h1 class="detail-title">Detalle — Madera</h1>
             <a class="detail-back" href="index.html#destacados">← Volver</a>
         </div>
 
+        <!-- Video principal -->
         <section class="detail-hero" aria-label="Video de colección">
             <video class="video" muted playsinline autoplay loop preload="metadata"
                 controlslist="nodownload noplaybackrate noremoteplayback nofullscreen" disablepictureinpicture>
@@ -56,16 +59,54 @@
         </section>
 
         <p style="max-width:70ch;margin:12px 0 28px;color:#444;">
-            Encuentros, luces y sombras: la madera como protagonista del detalle.
+            Encuentros precisos, luz rasante y textura: la madera como protagonista del detalle.
         </p>
+
+        <!-- FOTOS (c9–c12) con reveal -->
+        <section class="detail-photos" aria-label="Variantes de detalle">
+            <div class="detail-grid">
+                <figure class="photo reveal">
+                    <img src="img/c9.jpg" alt="Variante 1 — Detalle · Madera" loading="lazy" decoding="async">
+                    <figcaption class="photo-meta">
+                        <span class="credit">Variante 1</span>
+                        <span class="desc">aquí va la variante 1…</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="photo reveal" style="--d:120ms">
+                    <img src="img/c10.jpg" alt="Variante 2 — Detalle · Madera" loading="lazy" decoding="async">
+                    <figcaption class="photo-meta">
+                        <span class="credit">Variante 2</span>
+                        <span class="desc">aquí va la variante 2…</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="photo reveal" style="--d:240ms">
+                    <img src="img/c11.jpg" alt="Variante 3 — Detalle · Madera" loading="lazy" decoding="async">
+                    <figcaption class="photo-meta">
+                        <span class="credit">Variante 3</span>
+                        <span class="desc">aquí va la variante 3…</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="photo reveal" style="--d:360ms">
+                    <img src="img/c12.jpg" alt="Variante 4 — Detalle · Madera" loading="lazy" decoding="async">
+                    <figcaption class="photo-meta">
+                        <span class="credit">Variante 4</span>
+                        <span class="desc">aquí va la variante 4…</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
     </main>
 
+    <!-- Modal agenda compartido -->
     <div class="scheduler-backdrop" hidden></div>
     <div class="scheduler-panel" hidden aria-hidden="true" role="dialog" aria-modal="true">
-        <button class="scheduler-close" type="button" aria-label="Cerrar">x</button>
+        <button class="scheduler-close" type="button" aria-label="Cerrar">×</button>
         <header class="scheduler-head">
             <h3>Agendar reunión</h3>
-            <p>Horario laboral: 08:00-17:00</p>
+            <p>Horario laboral: 08:00–17:00</p>
         </header>
         <form id="schedule-form" class="scheduler-form">
             <label>Fecha <input type="date" id="meet-date" required></label>
